@@ -1,3 +1,131 @@
+.topnav{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  -webkit-box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.1); 
+  box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.1);
+}
+
+.leftnav{
+  flex: 4 1 0;
+  display: flex;
+}
+
+.rightnav{
+  flex: 1 1 0;
+}
+
+.leftnav a{
+  margin: 0 30px;
+  color: black;
+}
+
+.leftnav a:hover{
+  text-decoration:underline;
+  cursor: pointer;
+}
+
+.searchbar{
+  border: 1px solid black;
+  height: 30px;
+  width: 100%;
+}
+
+.searchbtn{
+  height: 20px;
+  width: 50px;
+  margin: 5px;
+  border-radius: 10px;
+  background:black; 
+  float: right;   
+}
+
+.main{
+  display: flex;
+  height: 400px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+}
+
+.maintitle{
+  flex: 1 1 0;
+  min-width: 300px;
+  margin-left: 80px;
+  margin-top: 15px;
+  margin-right: 30px;
+  font-weight: 800;
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+  font-size: 4.5rem;
+}
+
+.undertitle{
+  margin-top: 20px;
+  max-width: 300px;
+  color: black;
+  -webkit-text-stroke: 0px;
+  font-weight: 400;
+  font-size: 1rem
+}
+
+.mainimage{
+  flex: 1 1 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallerytitle{
+  margin-top: 10px;
+  margin-left: 80px;
+  font-weight: 600; 
+}
+
+.gallery{
+  display:flex;
+  height: 200px;
+  width: 100vw;
+  margin-left: 80px;
+  margin-bottom: 100px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none; 
+}
+
+.pics{  
+  flex: 0 0 250px;
+  position: relative;
+  margin-right: 50px;
+  width: auto;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.pics img{
+  height: 100px;
+  border-radius: 20px;
+}
+
+.footer{
+  margin-top: 50px;
+  padding: 20px;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.footer a{
+  color: grey;
+}
+/*
 .main {
   display: flex;
   flex-direction: column;
@@ -130,7 +258,6 @@
   z-index: -1;
 }
 
-/* Conic Gradient Animation */
 .thirteen::before {
   animation: 6s rotate linear infinite;
   width: 200%;
@@ -138,7 +265,6 @@
   background: var(--tile-border);
 }
 
-/* Inner Square */
 .thirteen::after {
   inset: 0;
   padding: 1px;
@@ -151,7 +277,6 @@
   background-clip: content-box;
 }
 
-/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -173,7 +298,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -250,7 +374,6 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -276,3 +399,4 @@
     transform: rotate(0deg);
   }
 }
+*/
