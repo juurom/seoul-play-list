@@ -77,8 +77,9 @@
 
 .gallery{
     display:flex;
+    text-align: center;
     flex-wrap: wrap;
-    width: 100vw;
+    width: 100%;
     margin: 20px;
     margin-bottom: 100px;
   }

@@ -45,7 +45,7 @@ export default function Home() {
           <Image
             src="/images/seoulimg.jpg"
             alt="image of seoul"
-            layout="fill"
+            fill
             objectFit="cover"
             quality={100}
             ></Image>

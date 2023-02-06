@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import styles from '@/styles/Search.module.css'
+import API_URL from '../apikey';
+import axios from 'axios';
+
+
 
 let samplepics:string[]=[
     "https://cdn.pixabay.com/photo/2020/08/09/11/31/business-5475283__340.jpg",
@@ -8,6 +12,12 @@ let samplepics:string[]=[
     "https://cdn.pixabay.com/photo/2020/07/09/14/24/asia-5387568__340.jpg",
     "https://cdn.pixabay.com/photo/2021/07/27/13/43/vietnamese-6496887__340.jpg",
 ]
+
+const getPosts = async()=>{
+  const res = await axios.get(API_URL+"/1/10");
+  const data = await res.data;
+  console.log(data.tvYeyakCOllect.row);
+}
 
 export default function SearchView(child:JSX.Element) {
     return (
