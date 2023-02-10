@@ -4,9 +4,20 @@ import Image from "next/image"
 import GallaryView from '@/components/GalleryView'
 import Footer from '@/components/Footer'
 import styles from '@/styles/Home.module.css'
-
+import { useEffect, useState } from 'react';
+import { Post } from '@/components/Interface'
+import getPost from './api/getPost'
 
 export default function Home() {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const set=async()=>{
+      setPosts(await getPost(1, 10));
+    }
+    set();
+  }, [/*page click state*/])
+  
   return (
     <>
       <Head>
@@ -53,10 +64,10 @@ export default function Home() {
       </div>
 
       <div id="recommend">
-        <GallaryView key={null} type={undefined} props={{title: "추천 플레이"}} />
+        <GallaryView key={null} type={undefined} props={{title: "추천 플레이", inputPost: posts}} />
       </div>
       <div id="scrap">
-        <GallaryView key={null} type={undefined} props={{title: "스크랩"}} />
+        <GallaryView key={null} type={undefined} props={{title: "스크랩", inputPost: posts}} />
       </div>
 
       <Footer></Footer>

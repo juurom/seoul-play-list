@@ -1,39 +1,65 @@
-import Image from 'next/image'
-import styles from '@/styles/Search.module.css'
-import API_URL from '../apikey';
-import axios from 'axios';
+import Image from "next/image";
+import styles from "@/styles/Search.module.css";
+import React, { useEffect, useState } from "react";
+import { Post } from "./Interface";
+import getPost from "@/pages/api/getPost";
+import Link from "next/link";
+import Pagination from "react-js-pagination";
 
+export default function SearchView(child: JSX.Element) {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [page, setPage] = useState<number>(1);
 
+  const handlePageChange = (page: number) => {
+    setPage(page);
+  };
 
-let samplepics:string[]=[
-    "https://cdn.pixabay.com/photo/2020/08/09/11/31/business-5475283__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/11/29/01/16/abacus-1866497__340.jpg",
-    "https://cdn.pixabay.com/photo/2020/09/18/03/28/people-5580755__340.jpg",
-    "https://cdn.pixabay.com/photo/2020/07/09/14/24/asia-5387568__340.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/27/13/43/vietnamese-6496887__340.jpg",
-]
+  useEffect(() => {
+    const set = async (start: number, end: number) => {
+      setPosts(await getPost(start, end));
+    };
+    set((page - 1) * 10 + 1, page * 10 + 20);
+  }, [handlePageChange]);
 
-const getPosts = async()=>{
-  const res = await axios.get(API_URL+"/1/10");
-  const data = await res.data;
-  console.log(data.tvYeyakCOllect.row);
-}
-
-export default function SearchView(child:JSX.Element) {
-    return (
-        <div className={styles.gallery}>
-        {samplepics.map(pic=>(
-          <>
-            <div className={styles.pics}>
-                <Image 
-                src={pic}
-                alt="활동이미지"
-                layout="fill"
-                objectFit="cover"
-                quality={100}></Image>
+  return (
+    <>
+    <div className={styles.galleryContainer}>
+      {posts &&
+        posts.map((post) => (
+          <Link href="/post">
+            <div className={styles.gallery}>
+              <div className={styles.pics}>
+                <Image
+                  src={post.IMGURL}
+                  alt="활동이미지"
+                  fill
+                  sizes="(max-width: 250px),
+                (max-width: 250px)"
+                  quality={100}
+                ></Image>
+              </div>
+              <div className={styles.exp}>
+                <span className={styles.tag}>{post.SVCSTATNM}</span>
+                <span className={styles.tag}>{post.AREANM}</span>
+                <span className={styles.tag}>{post.MAXCLASSNM}</span>
+                <span className={styles.tag}>{post.MINCLASSNM}</span>
+                <div className={styles.postTitle}>{post.SVCNM}</div>
+              </div>
             </div>
-          </>
+          </Link>
         ))}
+    </div>
+          <div className={styles.pagination}>
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={20}
+            totalItemsCount={1000}
+            pageRangeDisplayed={10}
+            prevPageText={"‹"}
+            nextPageText={"›"}
+            onChange={handlePageChange}
+          ></Pagination>
         </div>
-    )
+        </>
+  );
 }

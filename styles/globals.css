@@ -3,7 +3,8 @@
 *{
   font-family: NanumSquare;
   overflow-x: hidden;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
+  color: #20262E; 
 }
 
 body{

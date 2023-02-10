@@ -1,28 +1,26 @@
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-
-let samplepics:string[]=[
-    "https://cdn.pixabay.com/photo/2020/08/09/11/31/business-5475283__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/11/29/01/16/abacus-1866497__340.jpg",
-    "https://cdn.pixabay.com/photo/2020/09/18/03/28/people-5580755__340.jpg",
-    "https://cdn.pixabay.com/photo/2020/07/09/14/24/asia-5387568__340.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/27/13/43/vietnamese-6496887__340.jpg",
-]
+import { Post } from './Interface';
 
 export default function GallaryView(child:JSX.Element) {
+
+    const title:string = child.props.title;
+    const posts:Post[] = child.props.inputPost;
+  console.log(child.props);
     return (
       <>
-        <h2 className={styles.gallerytitle}>{child.props.title}</h2>
+        <h2 className={styles.gallerytitle}>{title}</h2>
 
         <div className={styles.gallery}>
-        {samplepics.map(pic=>(
+        {posts && posts.map(post=>(
           <>
             <div className={styles.pics}>
                 <Image 
-                src={pic}
+                src={post.IMGURL}
                 alt="활동이미지"
-                layout="fill"
-                objectFit="cover"
+                fill
+                sizes="(max-width: 250px),
+                (max-width: 200px)"
                 quality={100}></Image>
             </div>
           </>

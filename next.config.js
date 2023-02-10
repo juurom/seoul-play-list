@@ -7,9 +7,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.pixabay.com',
+        hostname: 'yeyak.seoul.go.kr',
         port: '',
-        pathname: '/photo/**',
+        pathname: '/web/common/file/**',
       },
     ],
   },

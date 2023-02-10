@@ -1,102 +1,178 @@
-.titlebar{
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    font-size: 1.2rem;
-    font-weight: 600;
+.titlebar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.titlebar button{
-    flex: 1 1 0;
-    cursor: pointer;
-    background:transparent;
-    border: none;
+.titlebar button {
+  flex: 1 1 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
-.titlebar div{
-    flex: 4 1 0;
-    text-align: center;
+.titlebar div {
+  flex: 4 1 0;
+  text-align: center;
 }
 
-.searchbar{
-    display: flex;
-    padding: 20px;
+.searchbar {
+  display: flex;
+  padding: 20px;
 }
 
-.searchbar div{
-    flex: 1 1 0;
-    min-width: 150px;
-    max-width: 150px;
-    padding: 10px 20px;
-    background: black;
-    color: white;
-    font-size: 0.8rem;
-    text-align: center;
-    border-radius: 20px;
-    margin-right: 30px;
+.searchbar div {
+  flex: 1 1 0;
+  min-width: 150px;
+  max-width: 150px;
+  padding: 10px 20px;
+  background: #20262e;
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  border-radius: 20px;
+  margin-right: 30px;
 }
 
-.searchbar input{
-    flex: 4 1 0;
-    background: #F1F1F1;
-    border: 0;
-    padding-left: 30px;
-    border-radius: 10px;
+.searchbar input {
+  flex: 4 1 0;
+  background: #e9e8e8;
+  border: 0;
+  padding-left: 30px;
+  border-radius: 10px;
 }
 
-.searchbar input:focus{
-    outline: 0;
+.searchbar input:focus {
+  outline: 0;
 }
 
-.undernav{
-    background: #F1F1F1;
-    padding: 30px 0;
-    -webkit-box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.1); 
-    box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.1);
+.undernav {
+  background: #e9e8e8;
+  padding: 30px 0;
+  -webkit-box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
-.condition{
-    background: white;
-    padding: 0 20px;
+.condition {
+  background: white;
+  padding: 0 20px;
 }
 
-.check{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+.check {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.check p{
-    font-weight: 600;
-    margin-right: 50px;
+.check p {
+  font-weight: 600;
+  margin-right: 50px;
 }
 
-.check label{
-    margin-right: 30px;
+.check label {
+  margin-right: 30px;
 }
 
-.gallery{
-    display:flex;
-    text-align: center;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 20px;
-    margin-bottom: 100px;
-  }
-  
-  .pics{  
-    flex: 0 0 250px;
-    position: relative;
-    margin-right: 50px;
-    margin-bottom: 20px;
-    width: auto;
-    height: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    scroll-snap-align: start;
-  }
-  
-  .pics img{
-    height: 100px;
-    border-radius: 20px;
-  }
+.galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.galleryContainer a {
+  color: #20262e;
+  text-decoration: none;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.tag {
+  font-size: 0.7rem;
+  background: #cd5888;
+  padding: 4px;
+  color: white;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.tag:nth-child(1) {
+  background: #20262e;
+}
+
+.tag:nth-child(2) {
+  background: #913175;
+}
+
+.postTitle {
+  margin-top: 5px;
+  font-weight: 800;
+}
+
+.pics {
+  flex: 0 0 250px;
+  position: relative;
+  width: 250px;
+  height: 200px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.pics img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.exp {
+  flex: 0 0 auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pagination li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+.pagination li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.pagination li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #20262e;
+  font-size: 1rem;
+}
+
+.pagination li.active a {
+  color: white;
+}
+
+.pagination li.active {
+  background-color: red;
+}
+
+.pagination li:hover,
+.pagination li .active {
+  text-decoration:underline;
+}
