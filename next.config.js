@@ -9,9 +9,23 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'yeyak.seoul.go.kr',
         port: '',
-        pathname: '/web/common/file/**',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'icare.seoul.go.kr',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'yongsanyouth.or.kr',
+        port: '',
+        pathname: '/**',
       },
     ],
+
+
   },
 }
 
