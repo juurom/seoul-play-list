@@ -27,7 +27,12 @@ export default function SearchView(child: JSX.Element) {
       <div className={styles.galleryContainer}>
         {posts &&
           posts.map((post) => (
-            <Link href="/post">
+            <Link href={
+              {pathname: `post/${post.SVCID}`, 
+              query: {
+                data: JSON.stringify(post)}
+              }}
+              as={`post/${post.SVCID}`}>
               <div className={styles.gallery}>
                 <div className={styles.pics}>
                   <Image

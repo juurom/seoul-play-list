@@ -1,23 +1,24 @@
-import Head from 'next/head'
-import Link from "next/link"
-import Image from "next/image"
-import GallaryView from '@/components/GalleryView'
-import Footer from '@/components/Footer'
-import styles from '@/styles/Home.module.css'
-import { useEffect, useState } from 'react';
-import { Post } from '@/components/Interface'
-import getPost from './api/getPost'
-
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import GallaryView from "@/components/GalleryView";
+import Footer from "@/components/Footer";
+import styles from "@/styles/Home.module.css";
+import { useEffect, useState } from "react";
+import { Post } from "@/components/Interface";
+import getPost from "./api/getPost";
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
 
-  useEffect(() => {
-    const set=async()=>{
-      setPosts(await getPost(1, 10));
-    }
-    set();
-  }, [/*page click state*/])
-  
+  useEffect(
+    () => {
+      const set = async () => {
+        setPosts(await getPost(1, 10));
+      };
+      set();
+    },[]
+  );
+
   return (
     <>
       <Head>
@@ -26,7 +27,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <nav className={styles.topnav}>
         <div className={styles.leftnav}>
           <a href="#main">MAIN</a>
@@ -43,13 +44,18 @@ export default function Home() {
       </nav>
 
       <div id="main" className={styles.main}>
-
         <div className={styles.maintitle}>
-          서울<br/>플레이<br/>리스트
+          서울
+          <br />
+          플레이
+          <br />
+          리스트
           <div className={styles.undertitle}>
-          서울시 공공서비스예약(종합) 정보<br/>
-          서울시 및 산하기관, 자치구의 체육시설, 시설대관, 교육, 문화행사, 진료 등의 상세 예약정보를 제공합니다.
-        </div>
+            서울시 공공서비스예약(종합) 정보
+            <br />
+            서울시 및 산하기관, 자치구의 체육시설, 시설대관, 교육, 문화행사,
+            진료 등의 상세 예약정보를 제공합니다.
+          </div>
         </div>
 
         <div className={styles.mainimage}>
@@ -57,37 +63,27 @@ export default function Home() {
             src="/images/seoulimg.jpg"
             alt="image of seoul"
             fill
-            objectFit="cover"
             quality={100}
-            ></Image>
+          ></Image>
         </div>
       </div>
 
       <div id="recommend">
-        <GallaryView key={null} type={undefined} props={{title: "추천 플레이", inputPost: posts}} />
+        <GallaryView
+          key={null}
+          type={undefined}
+          props={{ title: "추천 플레이", inputPost: posts }}
+        />
       </div>
       <div id="scrap">
-        <GallaryView key={null} type={undefined} props={{title: "스크랩", inputPost: posts}} />
+        <GallaryView
+          key={null}
+          type={undefined}
+          props={{ title: "스크랩", inputPost: posts }}
+        />
       </div>
 
       <Footer></Footer>
     </>
-  )
+  );
 }
-
-
-      /*
-      <main className={styles.main}>
-        <h1>Hello Next!</h1>
-        <Image
-          src="/images/kimchi.jpg"
-          height={200}
-          width={300}
-          alt="kimchi"
-          />
-        <Link href="/posts/first-post">
-          first-post로 가기
-        </Link>
-        
-      </main>
-      */
